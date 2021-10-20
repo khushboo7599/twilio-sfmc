@@ -98,51 +98,52 @@ exports.execute = function (req, res) {
     console.log("3");	
    console.log("2");	
     console.log("1");	
+    console.log("Executed");
     //console.log("Executed: "+req.body.inArguments[0]);
     
-    var requestBody = req.body.inArguments[0];
+//     var requestBody = req.body.inArguments[0];
 
-    const accountSid = requestBody.accountSid;
-    const authToken = requestBody.authToken;
-    const to = requestBody.to;
-    const from = requestBody.messagingService;
-    const body = requestBody.body;;
+//     const accountSid = requestBody.accountSid;
+//     const authToken = requestBody.authToken;
+//     const to = requestBody.to;
+//     const from = requestBody.messagingService;
+//     const body = requestBody.body;;
 
-    const client = require('twilio')(accountSid, authToken); 
+//     const client = require('twilio')(accountSid, authToken); 
      
-    client.messages 
-          .create({ 
-             body: body,
-             from: '+18782066477',
-             to: to,
-             provideFeedback:true
-           }) 
-          .then( (message) => {
-            console.log('Response:'+JSON.stringify(message))
-               try
-               {
+//     client.messages 
+//           .create({ 
+//              body: body,
+//              from: '+18782066477',
+//              to: to,
+//              provideFeedback:true
+//            }) 
+//           .then( (message) => {
+//             console.log('Response:'+JSON.stringify(message))
+//                try
+//                {
                    
-                    SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
-                      {
-                        keys: {
-                          to: message.to,
-                        },
-                        values: {
+//                     SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
+//                       {
+//                         keys: {
+//                           to: message.to,
+//                         },
+//                         values: {
                            
-                          accountSid: message.accountSid,
-                          body: message.body,
-                          from: message.from,
-                          uri: message.uri,
-                        },
-                      }
-                    ]);
-               }
-                catch(err)   
-               {
-                   console.log(err);
-               }
-               })
-          .done();
+//                           accountSid: message.accountSid,
+//                           body: message.body,
+//                           from: message.from,
+//                           uri: message.uri,
+//                         },
+//                       }
+//                     ]);
+//                }
+//                 catch(err)   
+//                {
+//                    console.log(err);
+//                }
+//                })
+//           .done();
     //to save in data extension
     
 //      var messagebird = require('messagebird')('XZjkDi18UTDVwU7PNXwsXtI2b');
