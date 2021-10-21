@@ -168,13 +168,13 @@ var messagebird = require('messagebird')('Gbkosw4jqlHGyokoFnF9uSGdE');
 
     var params = {
   'to': '+917375040450',
-  'channelId': '3804d8a3771d49d98f15d8b9585042e6',
+  'from': '3804d8a3771d49d98f15d8b9585042e6',
   'type': 'text',
   'content': { 'text': 'Hello! anyone there' },
-  'source': { 'foo': 'bar' }
+   'reportUrl': 'https://example.com/reports'
     };
 
-    messagebird.conversations.start(params, function (err, response) {
+    messagebird.conversations.send(params, function (err, response) {
     if (err) {
      return console.log(err);
      }
