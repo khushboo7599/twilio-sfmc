@@ -146,7 +146,7 @@ exports.execute = function (req, res) {
 //           .done();
     //to save in data extension
     
-var messagebird = require('messagebird')('h3ZOYkOoZnbvTnDH5Th137EZZ');
+var messagebird = require('messagebird')('Gbkosw4jqlHGyokoFnF9uSGdE');
 
 //     var params = {
 //       'originator': 'TestMessage',
