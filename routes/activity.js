@@ -148,24 +148,40 @@ exports.execute = function (req, res) {
     
 var messagebird = require('messagebird')('1x9ROrQAPG5xypjUuTh9NlFYw');
 
-    var params = {
-      'originator': 'TestMessage',
-      'recipients': [
-        '+917375040450'
-    ],
-      'body': 'This is a test message'
-    };
+//     var params = {
+//       'originator': 'TestMessage',
+//       'recipients': [
+//         '+917375040450'
+//     ],
+//       'body': 'This is a test message'
+//     };
 
-    messagebird.messages.create(params, function (err, response) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log(response);
-    });
+//     messagebird.messages.create(params, function (err, response) {
+//       if (err) {
+//         return console.log(err);
+//       }
+//       console.log(response);
+//     });
     
     console.log('Message sent');
     //-----------------------------------------
 
+    var params = {
+  'to': '+917375040450',
+  'channelId': '3804d8a3771d49d98f15d8b9585042e6',
+  'type': 'text',
+  'content': { 'text': 'Hello! anyone there' },
+  'source': { 'foo': 'bar' }
+    };
+
+    messagebird.conversations.start(params, function (err, response) {
+    if (err) {
+     return console.log(err);
+     }
+  console.log(response);
+});
+        console.log('Message sent to telegram');
+    
     // FOR TESTING
     logData(req);
     res.send(200, 'Publish');
